@@ -1,0 +1,45 @@
+<nav >
+  <div class="container-fluid">
+    
+    <div>
+      <span class="navbar-brand">BLOG</span>
+      <span>
+        <%= link_to "Menu", articles_path, class:"btn btn-success navbar-btn" %>
+      </span>
+      <span>
+        
+        <%= link_to "New article", new_article_path,  class:"btn btn-success navbar-btn" %> 
+      </span>
+      
+    </div>
+  </div>
+</nav>
+<div class="jumbotron"  align="center">
+  <h1 align="center">Hello, Rails!</h1>
+  <%= link_to 'Menu', articles_path, class:"btn btn-success btn-lg" %>
+  <%= link_to 'New article', new_article_path , class:"btn btn-success btn-lg   " %>
+ 
+  <div class="container">
+    
+    <table class="table table-condensed">
+      <tr>
+        <th class="titulo">Title</th>
+        <th class="titulo">Text</th>
+        <th colspan="2"></th>
+      </tr>
+     
+      <% @articles.each do |article| %>
+        <tr>
+          <td class="LetraMaior" ><%= article.title %></td>
+          <td class="LetraMaior"  ><%= article.text %></td>
+          <td><%= link_to 'Show', article_path(article), class:"btn btn-primary btn-lg" %></td>
+          <td><%= link_to 'Edit', edit_article_path(article), class:"btn btn-primary btn-lg" %></td>
+          <td><%= link_to 'Destroy', article_path(article),
+            method: :delete,
+            data: { confirm: 'Are you sure?' }  , class:"btn btn-primary btn-lg"%></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  
+</div>

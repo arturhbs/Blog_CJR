@@ -1,0 +1,52 @@
+<nav >
+  <div class="container-fluid">
+    
+    <div>
+      <span class="navbar-brand">BLOG</span>
+      <span>
+        <%= link_to "Menu", articles_path, class:"btn btn-success navbar-btn" %>
+      </span>
+      <span>
+        
+        <%= link_to "New article", new_article_path,  class:"btn btn-success navbar-btn" %> 
+      </span>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron" align="center">
+  
+  <p>
+    <strong>Title:</strong>
+    <%= @article.title %>
+  </p>
+   
+  <p>
+    <strong>Text:</strong>
+    <%= @article.text %>
+  </p>
+   
+  <h2>Comments : </h2>
+  <% @article.comments.each do |comment| %>
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.commenter %>
+    </p>
+   
+    <p>
+      <strong>Comment:</strong>
+      <%= comment.body %>
+    </p>
+  <% end %>
+   <p>
+  
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+   
+  <%= link_to 'Edit', edit_article_path(@article), class:"btn btn-primary btn" %> |
+  <%= link_to 'Back', articles_path, class:"btn btn-primary btn" %>
+</div>
+
+  
+ 

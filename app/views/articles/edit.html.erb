@@ -1,0 +1,25 @@
+<nav>
+  <div class="container-fluid">
+    
+    <div>
+      <span class="navbar-brand">BLOG</span>
+      <span>
+        <%= link_to "Menu", articles_path, class:"btn btn-success navbar-btn" %>
+      </span>
+      <span>
+        
+        <%= link_to "New article", new_article_path,  class:"btn btn-success navbar-btn" %> 
+      </span>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron" align="center">
+  
+  <h1>Editing article</h1>
+   
+  <%= render 'form' %>
+
+  <%= link_to 'Back', articles_path , class:"btn btn-primary btn"%>
+</div>
